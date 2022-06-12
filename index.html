@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="shortcut icon" type="image/png" href="./img/favicon.png">
+        <title>Abdallah Alshawaf Portfolio</title>
+    </head>
+
+    <!-- This website was made with pure CSS and HTML -->
+
+    <body>
+        <main class="container">
+
+                <!-- The Next and Go Buttons Section. This is a special hack I developed to animate the sections using only CSS. -->
+                
+                <input class="welcome__checkbox" type="checkbox" id="welcome__button"  required>
+                <label for="welcome__button" class="welcome__button">
+                    <span>Go</span>
+                </label>
+
+                <input class="next-checkbox next-checkbox-common" type="checkbox" id="next"> 
+                <label for="next" class="next next-common">
+                    <span>Next &rarr;</span>
+                </label>
+
+                <input class="next-checkbox2 next-checkbox-common" type="checkbox" id="next2"> 
+                <label for="next2" class="next2 next-common">
+                    <span>Next &rarr;</span>
+                </label>
+                
+                <input class="next-checkbox3 next-checkbox-common" type="checkbox" id="next3"> 
+                <label for="next3" class="next3 next-common">
+                    <span>Next &rarr;</span>
+                </label>
+
+                <input class="next-checkbox4 next-checkbox-common" type="checkbox" id="next4" OnClick="window.open('Email:abdallah.i.alshawaf@gmail.com', '_blank');"> 
+                <label for="next4" class="next4 next-common">
+                    <span>Email Me!</span>
+                </label>
+
+                <button for="back" class="back" onClick="window.location.reload();">
+                    <span>&larr; Go Back</span>
+                </button>
+
+                <!-- Welcome Section - Main Page -->
+
+               <section class="welcome">
+                    <article class="welcome__text">
+                        <h2 class="welcome__text1"> I'm glad you are here!</span> 
+                        <h2 class="welcome__text2">Let's go on a tour!</span> 
+                    </article>
+                </section>
+
+                <img src="./img/personal.png" alt="my photo" class="personal-photo">
+                
+                <!-- About Me Section -->
+
+                <article class="background__shapes background__shapes--1"></article>
+                <article class="background__shapes background__shapes--2"></article>
+
+                <section class="about">
+                    <h1 class="about__headline titles-common">
+                        <span> About Me </span> <img src="./img/man.png" alt="About Me" class="logos-common about__uniquelogo">
+                    </h1>
+                    <p class="about__text">I’m Abdallah. I’m an 18 years old boy living in East Khanyounis. When I first heard about the Gaza Sky Geeks program, I couldn’t be happier to apply. I have been waiting for a chance to join the Geeks community for a few months now and Code Academy seemed like a perfect opportunity. <br> <br>
+
+                            Only thing I needed was to meet the requirements. I had prior experience in HTML and CSS, but I was new to Javascript, so, I spent the two weeks starting from June studying Javascript full-time, often averaging 8 hours per day. I have now reached level 5 KYU on codewars and successfully made my javascript project and I’m continuing my learning to this day with the same schedule.  <br> <br>
+                            
+                            I want to join Code Academy because I love coding first and I want to start a career in it and also because I think the geeks community is awesome and I definitely want to be a part of it. 
+                    </p>						
+                </section>
+                
+                 <!-- Javascript Project Section -->
+                 
+                <section class="javascriptproject">
+                    <h1 class="javascript__title titles-common">Javascript Project <img src="./img/javascriptnobk.png" alt="javascript logo" class="logos-common"></h1>
+                    <h3 class="javascript__paragraph">My project is to make a fully-responsive web version of the game Rock, Paper, Scissors! You play against the computer, which selects randomly. Here's a link to it!</h3>
+                    <a href="./game3/index.html" target="_blank" class="javascriptproject__link"><img src="./img/rockpaperscissors.png" alt="Rock, Paper, Scissors!" class="javascript__img"></a>
+                </section>
+
+                 <!-- Profiles Section -->
+                 
+                <section class="profiles">
+                    <h1 class="profiles__title titles-common">My Profiles <img src="./img/profiles.png" alt="programming icon" class="profiles__logo"></h1>
+                    <article class="profiles__profiles">
+                        <a href="https://github.com/abdallah-alshawaf/portfolio" class="profiles__links" target="_blank">
+                            Github <img src="./img/github.png" alt="Github icon" class="logos-common profiles__icon__unique">
+                        </a>
+                        <a href="https://www.freecodecamp.org/abdallah-alshawaf" class="profiles__links" target="_blank">
+                            freeCodeCamp <img src="./img/freecodecamp.webp" alt="freeCodeCamp icon" class="logos-common profiles__icon__unique">
+                        </a>
+                        <a href="https://www.codewars.com/users/abdallah-alshawaf" class="profiles__links" target="_blank">
+                            Codewars <img src="./img/codewars.png" alt="Codewars icon" class="logos-common profiles__icon__unique">
+                        </a>
+
+                    </article>
+                </section>
+
+                 <!-- Contact Me Section -->
+                    
+                <section class="contact">
+                    <h1 class="contact__title titles-common">Contact Me<img src="./img/contact.png" alt="Contact me icon" class="logos-common contact__icon__unique"></h1>
+                    <article class="contact__box">
+                        <h2 class="contact__info"><img src="./img/gmail.png" alt="gmail icon" class="logos-common contact__icon__unique2"> Email: abdallah.i.shawaf@gmail.com</h2>
+                        <h2 class="contact__info"><img src="./img/phone.jpg" alt="phone icon" class="logos-common contact__icon__unique2"> Phone Number: 0594131821</h2>
+                    </article>
+                </section>
+
+            </div>
+
+
+    </main>
+            
+
+    </body>
+
+
+
+</html>

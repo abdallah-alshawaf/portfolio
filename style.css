@@ -1,0 +1,781 @@
+
+/* Main Elements */
+
+:root {
+    --color-primary:#3ca59d;
+    --color-primary-light:#B3FFAB ;
+    --color-primary-dark:#12FFF7 ;
+    --color-grey-light-1: #faf9f9;
+    --color-grey-light-2: #f4f2f2;
+    --color-grey-light-3: #f0eeee;
+    --color-grey-light-4: #ccc;
+    --color-grey-dark-1: #333;
+    --color-grey-dark-2: #777;
+    --color-grey-dark-3: #999;
+    --line: 1px solid var(--color-grey-light-2);
+    --shadow-light-1: 0 1.5rem 4.5rem rgba(0,0,0,.1);
+    --shadow-dark-1: 0 2rem 6rem rgba(0,0,0,.3);
+    --shadow-dark-2: 0 2rem 4rem rgba(0,0,0,.2);
+}
+
+::selection {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Quicksand", sans-serif;
+}
+
+
+html {
+    font-size: 8.48px;
+}
+
+body {
+    font-weight: 400;
+    color: var(--color-grey-dark-2);
+    background-image: linear-gradient(to right bottom, var(--color-primary-light), var(--color-primary-dark));
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 135rem;
+    margin: 4rem auto;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark-1);
+    position: relative;
+    animation: container 1.5s;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+.background__shapes {
+    height: 20rem;
+    width: 20rem;
+    -webkit-clip-path: polygon(100% 0, 0% 100%, 0 0);
+            clip-path: polygon(100% 0, 0% 100%, 0 0);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: all .8s ease-in .7s;
+    transition: all .8s ease-in .7s;
+    background-color: darkturquoise;
+    position: absolute;
+}
+
+
+.background__shapes--1 {
+    top: 0;
+    left: 0;
+}
+  
+.background__shapes--2 {
+    -webkit-clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+            clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+    bottom: 0;
+    right: 0;
+}
+  
+/* Animations */
+
+@keyframes container {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
+/* Welcome Section */
+
+.personal-photo {
+    height: 70rem;
+    -webkit-clip-path: polygon(35% 0, 100% 0%, 100% 100%, 10% 100%);
+            clip-path: polygon(35% 0, 100% 0%, 100% 100%, 10% 100%);
+    transition: all .8s ease-in;
+}
+
+.personal-photo2 {
+    display: none;
+    height: 100%;
+}
+
+.personal-photo3 {
+    display: none;
+    height: 100%;
+}
+
+.welcome {
+    flex: 1;
+    position: relative;
+    margin-right: -6rem;
+    text-align: center;
+    transition: all .8s ease-in;
+}
+
+.welcome__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: -20rem;
+    left: 10rem;
+    width: 400px;
+
+
+}
+
+.welcome__text1 {
+    font-size: 6rem;
+    font-weight: 400;
+    color: var(--color-primary);
+    margin-bottom: 2rem;
+}
+
+.welcome__text2 {
+        font-size: 3rem;
+        font-weight: 400;
+        color: var(--color-primary);
+}
+      
+.welcome__checkbox {
+/* Hiding the checkbox, but not the label attached to it. */
+    display: none;
+}
+  
+.welcome__button {
+/* In hindsight, position absolute (relative to the page) is not the best choice. I have changed all of the inner sections to neat flexbox display to make up for it.  */
+    position: absolute;
+    top: 38rem;
+    left: 28rem;
+    box-shadow: var(--shadow-light-1);
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1.5rem 3rem;
+    background-color: #fff;
+    color: var(--color-primary);
+    transition: background-color .2s, color .2s, top .6s, left .6s, transform .1s;
+    z-index: 30;
+}
+
+
+.welcome__button:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+  
+  .welcome__button:active {
+    background-color: #75cec6;
+}
+  
+  .welcome__button::after {
+    content: "\2192";
+}
+
+/* Making the first slide show animation */
+  
+.welcome__checkbox:checked ~ .welcome {
+    opacity: 0;
+    visibility: hidden;
+}
+  
+.welcome__checkbox:checked ~ .personal-photo {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.welcome__checkbox:checked ~ .welcome__button {
+    left: 1%;
+    top: 90%;
+}
+  
+.welcome__checkbox:checked ~ .welcome__button::before {
+    content: '\2190';
+}
+  
+.welcome__checkbox:checked ~ .welcome__button::after {
+    content: 'Back';
+}
+  
+.welcome__checkbox:checked ~ .background__shapes {
+    visibility: visible;
+    opacity: 1;
+}
+
+.welcome__checkbox:checked ~ .about {
+    font-size: 2.5rem;
+    -webkit-transition: opacity .8s ease-in .7s;
+    transition: opacity .8s ease-in .7s;
+    opacity: 1;
+    left: 0;
+    top: -10%;
+    font-weight: 500;
+    visibility: visible;
+    line-height: 1.4;
+}
+
+.welcome__checkbox:checked ~ .next {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* About Me Section */
+
+.about {
+    transition: opacity .8s ease-in .7s;
+    position: absolute;
+    left: -999px;
+    visibility: hidden;
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 10rem auto;
+    font-size: 3rem;
+}
+
+.titles-common {
+    margin-bottom: 2rem;
+    margin-left: 3.5rem;
+    font-size: 6rem;
+    font-weight: 300;
+}
+
+.about__headline {
+    display: flex;
+    align-items: center;
+}
+
+.about__text {
+    text-align: justify;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+        hyphens: auto;
+    width: 80%;
+}
+
+.about__uniquelogo {
+    margin-bottom: 1rem !important;
+}
+
+.about__img {
+    height: 128px;
+    width: 128px;
+}
+
+/* Next and Back Buttons Section */
+  
+.next-common {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 1.5rem;
+    right: 21rem;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1.5rem 3rem;
+    background-color: #fff;
+    color: var(--color-primary);
+    transition: background-color .2s, color .2s, opacity .8s ease-in .7s;
+    z-index: 30;
+}
+
+.next {
+    box-shadow: var(--shadow-light-1);
+}
+
+.next-common:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+  }
+  
+.next-common:active {
+    background-color: #75cec6;
+}
+  
+.next-checkbox-common {
+    display: none;
+}
+  
+.next-checkbox:checked ~ .about {
+    transition: all 2s;
+    left: -999px;
+    visibility: hidden;
+    opacity: 0;
+}
+  
+.next-checkbox:checked ~ .javascriptproject {
+    transition: opacity .8s ease-in 1.2s;
+    opacity: 1;
+    left: 10%;
+    top: 0;
+    visibility: visible;
+    width: 80%;
+}
+
+.next-checkbox:checked ~ .back {
+    visibility: visible;
+    opacity: 1;
+    z-index: 60;
+}
+  
+.next-checkbox:checked ~ .next2 {
+    visibility: visible;
+    opacity: 1;
+    z-index: 60;
+}
+  
+.back {
+    visibility: hidden;
+    opacity: 0;
+    border: none;
+    font-weight: 400;
+    position: absolute;
+    top: 90%;
+    left: 1%;
+    border-radius: 50px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 1.8rem;
+    padding: 1.5rem 3rem;
+    background-color: #fff;
+    color: var(--color-primary);
+    transition: background-color .2s, color .2s, top .6s, left .6s;
+    z-index: 10;
+}
+  
+.back:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+  
+  .back:active {
+    background-color: #75cec6;
+}
+  
+  .back:focus {
+    outline: none;
+}
+
+
+/* Javascript Project Section */
+
+.javascriptproject {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: -999px;
+    top: -9.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 2rem auto;
+}
+  
+.javascript__paragraph {
+    font-size: 2.5rem;
+    font-weight: 500;
+    margin-bottom: 5rem;
+}
+  
+.logos-common {
+    width: 100%;
+    max-width: 6.4rem;
+    height: auto;
+    margin-bottom: -1.5rem;
+}
+  
+.javascript__img {
+    max-width: 100%;
+    height: auto;
+}
+
+.javascriptproject__link {
+    text-decoration: none;
+    box-shadow: var(--shadow-light-1);
+    border-radius: 3rem;
+    transition: all .2s;
+}
+
+.javascriptproject__link:hover {
+    transform:translateY(-.5rem);
+}
+
+.javascriptproject__link:active {
+    transform:translateY(+.1rem);
+}
+
+.next-checkbox2:checked ~ .javascriptproject {
+    transition: all 2s;
+    left: -999px;
+    visibility: hidden;
+    opacity: 0;    
+}
+
+.next-checkbox2:checked ~ .profiles {
+    transition: opacity .8s ease-in 1.2s;
+    opacity: 1;
+    left: 10%;
+    top: 0;
+    visibility: visible;
+    width: 80%;
+}
+
+/* My Profiles Section */
+  
+.profiles {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: -999px;
+    top: -9.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 2rem auto;
+}
+
+.profiles__title {
+    margin-bottom: 5rem;
+}
+
+.profiles__logo {
+    width: 100%;
+    max-width: 8rem;
+    height: auto;
+    margin-bottom: -1.8rem;
+}
+
+.profiles__profiles {
+    display: flex;
+    flex-direction: column;
+}
+
+.profiles__links {
+    text-decoration: none;
+    font-size: 3.5rem;
+    padding: 3rem 6rem;
+    background-color: #fff;
+    margin-bottom: 3rem;
+    text-align: center;
+    color: var(--color-primary);
+    border-radius: 100px;
+    box-shadow: var(--shadow-light-1);
+    transition: all .2s;  
+}
+
+.profiles__links:hover {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+/* A very cool trick to turn the icons to white when hovering! */
+
+.profiles__links:hover > .profiles__icon__unique {
+    filter: invert(100%);
+}
+
+.profiles__links:active {
+    background-color: #53ccc2;
+}
+
+.profiles__icon__unique {
+    max-width: 5.5rem;
+}
+
+.next-checkbox3:checked ~ .profiles {
+    -webkit-transition: all 2s;
+    transition: all 2s;
+    left: -999px;
+    visibility: hidden;
+    opacity: 0;
+}  
+
+.next-checkbox3:checked ~ .contact {
+    transition: opacity .8s ease-in 1.2s;
+    opacity: 1;
+    left: 10%;
+    top: 0;
+    visibility: visible;
+    width: 80%;
+}
+
+.next-checkbox2:checked ~ .next3 {
+    visibility: visible;
+    opacity: 1;
+    z-index: 90;
+}
+.next-checkbox3:checked ~ .next4 {
+    visibility: visible;
+    opacity: 1;
+    z-index: 90;
+}
+
+/* Contact Me Section */
+  
+.contact {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    left: -999px;
+    top: -9.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    margin: 2rem auto;
+}
+
+.contact__icon__unique {
+    max-width: 7.2rem;
+    margin-left: .8rem;
+}
+
+.contact__box {
+    display: flex;
+    flex-direction: column;
+    border: 2px black dotted;
+    margin-top: 4rem;
+    padding: 4rem;
+    margin-left: 1.5rem;
+}
+
+.contact__info {
+    font-size: 2.5rem;
+    font-weight: 500;
+}
+
+
+.contact__info:not(:last-child) {
+    margin-bottom: 3rem;
+}
+
+.contact__icon__unique2 {
+    max-width: 4.8rem;
+}
+
+/* Media Queries */
+
+/* Media Queries for all sections */
+
+
+@media only screen and (max-width: 770px)  {   
+    .titles-common {
+        font-size: 4rem;
+    }
+    .logos-common {
+        max-width: 5rem;
+    }
+    .about__text {
+        font-size: 2rem;
+    }
+    .javascript__paragraph {
+        font-size: 2rem;
+    }
+    .javascriptproject {
+        left: 13% !important;
+    }
+    .javascript__img {
+        width: 52rem;
+    }
+    .profiles__logo {
+        max-width: 7rem;
+    }
+    .contact__icon__unique {
+        max-width: 5.6rem;
+    }
+    .background__shapes {
+        width: 15rem;
+        height: 15rem;
+    }
+    .next-common {
+        right: 15rem !important;
+    }
+
+}
+
+@media only screen and (max-width: 600px)  {
+    .about__text {
+        font-size: 1.8rem;
+    }
+    .javascript__paragraph {
+        font-size: 1.8rem;
+    }
+    .contact__info {
+        font-size: 2rem;
+    }
+}
+
+
+@media only screen and (max-width: 480px)  {
+    .background__shapes {
+        width: 12rem;
+        height: 12rem;
+    }
+
+    .about__text {
+        line-height: 2.2rem;
+    }
+    .contact__box {
+        width: 110%;
+    }
+
+    .next-common {
+        right: 11rem !important;
+    }
+}
+
+@media only screen and (max-width: 425px)  {
+    .background__shapes {
+        width: 10rem;
+        height: 10rem;
+    }
+    .titles-common {
+        font-size: 3rem;
+    }
+    .logos-common {
+        max-width: 4rem;
+    }  
+    .about__text {
+        line-height: 2rem;
+    }
+    .profiles__logo {
+        max-width: 5rem;
+    }
+
+    .profiles__links {
+        padding: 2rem 4rem;
+        font-size: 3rem;
+    }
+
+    .profiles__icon__unique {
+        max-width: 5rem !important;
+    }
+
+    .next-common {
+        right: 9rem !important;
+    }
+
+}
+
+@media only screen and (max-width: 320px)  {
+    .background__shapes {
+        width: 8rem;
+        height: 8rem;
+    }
+    .titles-common {
+        margin-left: 0;
+    }
+    .next-common {
+        right: 6.5rem !important;
+    }
+    .about__text {
+        font-size: 1.6rem;      
+        line-height: 1.9rem;
+    }
+    .javascript__paragraph {
+        font-size: 1.6rem;
+    }
+    .contact__info {
+        font-size: 1.6rem;
+    }
+    .contact__icon__unique {
+        max-width: 5rem;
+    }
+
+}
+
+/* Media Queries for the main section only */
+
+@media only screen and (max-width: 1024px)  {   
+    .welcome__text {
+        left: 0;
+    }
+    .welcome__button {
+        left: 18rem;
+    }
+}
+
+@media only screen and (max-width: 940px)  {   
+    .welcome__text {
+        left: 0;
+        width: 300px;
+    }
+    .welcome__text1 {
+        font-size: 4rem;
+    }
+    .welcome__text2 {
+        font-size: 2rem;
+    }
+    .welcome__button {
+        left: 12rem;
+        top: 32rem;
+    }
+    .personal-photo {
+        -webkit-clip-path: polygon(45% 0, 100% 0%, 100% 100%, 20% 100%);
+        clip-path: polygon(45% 0, 100% 0%, 100% 100%, 20% 100%);
+    }
+
+}
+
+@media only screen and (max-width: 770px)  {   
+    .welcome__text {
+        left: 4rem;
+        top: -12rem;
+    }
+    .welcome__button {
+        left: 16rem;
+        top: 40rem;
+    }
+    .personal-photo {
+        margin-left: -10rem;
+        -webkit-clip-path: polygon(251% 0, 35% 0%, 100% 100%, 20% 109%);
+        clip-path: polygon(251% 0, 35% 0%, 100% 100%, 20% 109%);
+    }
+}
+
+@media only screen and (max-width: 500px)  {
+    .welcome__text {
+        left: -3rem;
+        top: -3rem;
+    }
+    .welcome__text1 {
+        font-size: 3rem;
+    }
+    .welcome__text2 {
+        font-size: 1.5rem;
+    }
+    .welcome__button {
+        left: 10rem;
+        top: 44rem;
+    }
+    .personal-photo {
+        margin-left: -25rem;
+    }
+    .welcome__button {
+        font-size: 1.6rem !important;
+    }
+    .back {
+        font-size: 1.6rem !important;
+    }
+}
+
